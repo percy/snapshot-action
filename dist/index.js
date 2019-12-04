@@ -8136,6 +8136,14 @@ const pkg = __webpack_require__(731);
 
 const ACTION_UA = `${pkg.name}/${pkg.version}`;
 
+// Sets the required env info for Percy to work correctly
+function setPercyBranchBuildInfo(pullRequestNumber) {
+  let prBranch = github.context.payload.pull_request.head.ref;
+
+  core.exportVariable('PERCY_BRANCH', prBranch);
+  core.exportVariable('PERCY_PULL_REQUEST', pullRequestNumber);
+}
+
 (async () => {
   try {
     let flags = core.getInput('flags');
@@ -8160,7 +8168,7 @@ const ACTION_UA = `${pkg.name}/${pkg.version}`;
     }
 
     // Set the PR # (if available) and branch name
-    !!pullRequestNumber && core.exportVariable('PERCY_PULL_REQUEST', pullRequestNumber);
+    !!pullRequestNumber && setPercyBranchBuildInfo(pullRequestNumber);
 
     // Run the passed options with `percy snapshot` to create a Percy build
     await exec.exec(`"${npxPath}" percy snapshot ${outputDir} ${flags}`, [], execOptions);
