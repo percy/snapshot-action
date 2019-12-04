@@ -1,0 +1,24 @@
+name: "Percy Static Site" # Uhhhh name?
+description: "A GitHub action to visually test static sites with Percy"
+branding:
+  icon: 'camera'
+  color: 'purple'
+inputs:
+  build-directory:
+    description: 'The directory where your static site outputs its build to'
+    default: ''
+  flags:
+    description: 'CLI flags to pass to `percy snapshot`'
+    default: ''
+  working-directory:
+    description: 'The working directory which the commands should be executed in'
+    default: './'
+  silence:
+    description: 'Silence logging'
+    default: false
+  verbose:
+    description: 'Enable verbose logging'
+    default: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

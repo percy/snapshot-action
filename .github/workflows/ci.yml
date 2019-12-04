@@ -1,0 +1,25 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+      - name: Install
+        run: bundle install
+        working-directory: ./tests
+      - name: Build
+        run: bundle exec jekyll build
+        working-directory: ./tests
+      - name: Default test
+        uses: ./
+        with:
+          build-directory: "_site"
+          working-directory: ./tests
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

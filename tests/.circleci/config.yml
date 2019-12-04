@@ -1,0 +1,41 @@
+references:
+  defaults: &defaults
+    working_directory: ~/example-percy-jekyll
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: ~/
+
+version: 2.1
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: bundle install
+      - run:
+          name: Build the static site
+          command: bundle exec jekyll build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - example-percy-jekyll/_site
+  test:
+    <<: *defaults
+    steps:
+      - *attach_workspace
+      - run:
+          name: Visual Tests
+          command: npx percy snapshot _site
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
