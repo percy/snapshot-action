@@ -1,4 +1,4 @@
-# Percy Static Sites
+# Percy for Static Sites
 
 A GitHub action to visuall test static sites with Percy. [Full API docs for this action
 can be found here](https://docs.percy.io/docs/github-actions#section-snapshot-action)
