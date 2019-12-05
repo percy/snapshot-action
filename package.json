@@ -1,6 +1,6 @@
 {
   "name": "snapshot-action",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A GitHub action to visually test static sites with Percy",
   "main": "dist/index.js",
   "repository": "https://github.com/percy/snapshot-action",
