@@ -1,5 +1,5 @@
-name: "Percy Static Site" # Uhhhh name?
-description: "A GitHub action to visually test static sites with Percy"
+name: 'Percy for Static Sites'
+description: 'A GitHub action to visually test static sites with Percy'
 branding:
   icon: 'camera'
   color: 'purple'
