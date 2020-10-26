@@ -8999,7 +8999,7 @@ module.exports = {"activity":{"checkStarringRepo":{"method":"GET","params":{"own
 /***/ 731:
 /***/ (function(module) {
 
-module.exports = {"name":"snapshot-action","version":"0.1.1","description":"A GitHub action to visually test static sites with Percy","main":"dist/index.js","repository":"https://github.com/percy/snapshot-action","keywords":["GitHub action","Percy","visual testing"],"author":"Perceptual Inc.","license":"MIT","scripts":{"build":"ncc build src/index.js","percy":"percy exec -- node ./tests/script.js","precommit":"yarn build && git add dist/index.js"},"dependencies":{"@actions/core":"^1.2.6","@actions/exec":"^1.0.1","@actions/github":"^1.1.0","@actions/io":"^1.0.1"},"devDependencies":{"@percy/script":"^1.0.2","@zeit/ncc":"^0.20.5"}};
+module.exports = {"name":"snapshot-action","version":"0.1.2","description":"A GitHub action to visually test static sites with Percy","main":"dist/index.js","repository":"https://github.com/percy/snapshot-action","keywords":["GitHub action","Percy","visual testing"],"author":"Perceptual Inc.","license":"MIT","scripts":{"build":"ncc build src/index.js","percy":"percy exec -- node ./tests/script.js","precommit":"yarn build && git add dist/index.js"},"dependencies":{"@actions/core":"^1.2.6","@actions/exec":"^1.0.1","@actions/github":"^1.1.0","@actions/io":"^1.0.1"},"devDependencies":{"@percy/script":"^1.0.2","@zeit/ncc":"^0.20.5"}};
 
 /***/ }),
 
