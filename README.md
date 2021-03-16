@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: bundle exec jekyll build
       - name: Percy Test
-        uses: percy/snapshot-action@v0.1.0
+        uses: percy/snapshot-action@v0.1.2
         with:
           build-directory: "_site/"
         env:
